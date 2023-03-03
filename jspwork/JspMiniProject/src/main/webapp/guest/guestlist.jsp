@@ -13,10 +13,19 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <%
-  GuestDao dao=new GuestDao();
-	int totalCount=dao.getTotalCount();
+   //로그인상태 확인후 입력폼 나타내기
+   String loginok=(String)session.getAttribute("loginok");
 %>
 <body>
-<h2 class="alert alert-info">총 <%=totalCount %>개의 방명록 글이 있습니다</h2>
+  <%
+    if(loginok!=null){%>
+    	
+    	<jsp:include page="addform.jsp"/>
+    	<hr align="left" width="800">
+    <%}
+  %>
+  
+  
+  <b>방명록 출력할 곳!!!</b>
 </body>
 </html>

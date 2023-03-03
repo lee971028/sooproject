@@ -45,12 +45,13 @@ String myid=(String)session.getAttribute("myid");
     	    <%=dto.getAddr() %><br>
     	    <%=dto.getEmail() %><br>
     	    <%=sdf.format(dto.getGaipday()) %><br>
-    	    
-    	    <button type="button" class="btn btn-danger btn-xs"
+    	    <div style="float: right;">
+    	    	<button type="button" class="btn btn-danger btn-xs"
     	       onclick="delfunc(<%=dto.getNum()%>)">수정</button>
     	       
-    	       <button type="button" class="btn btn-danger btn-xs"
+    	       	<button type="button" class="btn btn-danger btn-xs"
     	       onclick="delfunc(<%=dto.getNum()%>)">삭제</button>
+    	     </div>
     	    </td>
     	 </tr>
      <%}
