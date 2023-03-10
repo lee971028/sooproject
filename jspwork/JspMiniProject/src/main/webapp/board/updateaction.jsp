@@ -21,25 +21,26 @@
 //데이타 읽어서 dto읽기
 SmartDto dto=new SmartDto();
 
+//현재페이지
+String currentPage=request.getParameter("currentPage");
+
+String num=request.getParameter("num");
 String writer=request.getParameter("writer");
 String subject=request.getParameter("subject");
 String content=request.getParameter("content");
 
-
+dto.setNum(num);
 dto.setWriter(writer);
 dto.setSubject(subject);
 dto.setContent(content);
 
 
-//dao선언후 insert호출
+//dao선언후 update호출
 SmartDao dao=new SmartDao();
-dao.insertSmart(dto);
+dao.updateSmart(dto);
 
-//방금추가된 num값얻기
-int num=dao.getMaxNum();
-
-//gaipsuccess페이지로 이동
-response.sendRedirect("../index.jsp?main=board/detailview.jsp?num="+num+"&currentPage=1");
+//디테일뷰
+response.sendRedirect("../index.jsp?main=board/detailview.jsp?num="+num+"&currentPage="+currentPage);
 %>
 </body>
 </html>
